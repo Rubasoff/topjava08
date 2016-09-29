@@ -13,10 +13,10 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_USER', 100000),
   ('ROLE_ADMIN', 100001);
 
-INSERT INTO meals (dateTime, description, calories) VALUES
-(date '2015-05-30' + time '10:00', 'Завтрак', 500),
-(date '2015-05-30' + time '10:00', 'Обед', 1000),
-(date '2015-05-30' + time '20:00', 'Ужин', 500),
-(date '2015-05-31' + time '10:00', 'Завтрак', 1000),
-(date '2015-05-31' + time '13:00', 'Обед', 500),
-(date '2015-05-31' + time '20:00', 'Ужин', 510);
+INSERT INTO meals (dateTime, description, calories, user_id) VALUES
+(date '2015-05-30' + time '10:00', 'Завтрак', 500, 100000),
+(date '2015-05-30' + time '10:00', 'Обед', 1000, 100000),
+(date '2015-05-30' + time '20:00', 'Ужин', 500, 100000),
+(date '2015-05-31' + time '10:00', 'Завтрак', 1000, 100000),
+(date '2015-05-31' + time '13:00', 'Обед', 500, 100000),
+(date '2015-05-31' + time '20:00', 'Ужин', 510, 100000);
