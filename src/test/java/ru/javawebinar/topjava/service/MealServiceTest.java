@@ -25,6 +25,7 @@ import static ru.javawebinar.topjava.MealTestData.MATCHER;
 import static ru.javawebinar.topjava.UserTestData.ADMIN;
 import static ru.javawebinar.topjava.UserTestData.USER;
 import static ru.javawebinar.topjava.UserTestData.USER_ID;
+import static ru.javawebinar.topjava.model.BaseEntity.START_SEQ;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
@@ -99,13 +100,9 @@ public class MealServiceTest {
 
     @Test(expected = NotFoundException.class)
     public void testUpdateNotFound() throws Exception {
-        service.update(MEAL, USER_ID+1);
+        service.update(MEAL, START_SEQ + 100);
     }
 
-    @Test(expected = DataAccessException.class)
-    public void testDuplicateMailSave() throws Exception {
-        service.update(MEAL, USER_ID+1);
-    }
 
     @Test
     public void testSave() throws Exception {

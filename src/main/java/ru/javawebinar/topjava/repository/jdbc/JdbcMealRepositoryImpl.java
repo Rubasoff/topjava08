@@ -53,6 +53,7 @@ public class JdbcMealRepositoryImpl implements MealRepository {
         if (meal.isNew()) {
             Number newKey = insertMeal.executeAndReturnKey(map);
             meal.setId(newKey.intValue());
+            rowCount++;
         } else {
             rowCount = namedParameterJdbcTemplate.update(
                     "UPDATE meals SET description=:description, calories=:calories, dateTime=:dateTime " +

@@ -14,14 +14,11 @@ import java.util.stream.Collectors;
  * 13.03.2015.
  */
 public class MealTestData {
-    public static int MEAL_ID;
-    public static Meal MEAL;
+    public static final int MEAL_ID = START_SEQ+2;;
+    public static final Meal MEAL = new Meal(MEAL_ID,LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500);
     public static List<Meal> USER_MEALS;
 
     public static void init(){
-        MEAL_ID = START_SEQ+2;
-        MEAL = new Meal(MEAL_ID,LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500);
-
         USER_MEALS = new ArrayList<>(Arrays.asList(
                 MEAL,
                 new Meal(MEAL_ID+1,LocalDateTime.of(2015, Month.MAY, 30, 13, 0), "Обед", 1000),
