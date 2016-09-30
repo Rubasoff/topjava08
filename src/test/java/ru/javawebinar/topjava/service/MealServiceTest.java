@@ -12,13 +12,15 @@ import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.util.DbPopulator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.*;
 
 import static ru.javawebinar.topjava.MealTestData.*;
 import static ru.javawebinar.topjava.MealTestData.USER_MEALS;
+import static ru.javawebinar.topjava.MealTestData.MATCHER;
+import static ru.javawebinar.topjava.UserTestData.ADMIN;
 import static ru.javawebinar.topjava.UserTestData.USER;
 import static ru.javawebinar.topjava.UserTestData.USER_ID;
 
@@ -45,7 +47,7 @@ public class MealServiceTest {
     @Test
     public void testGet() throws Exception {
         Meal meal = service.get(MEAL_ID, USER_ID);
-        MealTestData.MATCHER.assertEquals(MEAL, meal);
+        MATCHER.assertEquals(MEAL, meal);
     }
 
     @Test
@@ -57,27 +59,39 @@ public class MealServiceTest {
 
     @Test
     public void testGetBetweenDates() throws Exception {
-
+        Collection<Meal> meals = service.getBetweenDates(LocalDate.of(2015, Month.MAY, 29), LocalDate.of(2015, Month.MAY, 31), USER_ID);
+        MATCHER.assertCollectionEquals(USER_MEALS, meals);
     }
 
     @Test
     public void testGetBetweenDateTimes() throws Exception {
-
+        Collection<Meal> meals = service.getBetweenDateTimes(LocalDateTime.of(2015, Month.MAY, 30, 10, 0), LocalDateTime.of(2015, Month.MAY, 30, 11, 0), USER_ID);
+        MATCHER.assertCollectionEquals(Arrays.asList(MEAL), meals);
     }
 
     @Test
     public void testGetAll() throws Exception {
-
+        Collection<Meal> all = service.getAll(USER_ID);
+        MATCHER.assertCollectionEquals(USER_MEALS, all);
     }
 
     @Test
     public void testUpdate() throws Exception {
-
+        Meal updated = new Meal(MEAL);
+        updated.setCalories(330);
+        updated.setDescription("UpdatedDescription");
+        service.update(updated, USER_ID);
+        MATCHER.assertEquals(updated, service.get(MEAL_ID, USER_ID));
     }
 
     @Test
     public void testSave() throws Exception {
-
+        Meal newMeal = new Meal(null, LocalDateTime.of(2016, Month.MAY, 30, 13, 0), "Обед", 4000);
+        Meal created = service.save(newMeal, USER_ID);
+        newMeal.setId(created.getId());
+        USER_MEALS.add(newMeal);
+        Collections.sort(USER_MEALS, (o1, o2) -> o2.getDateTime().compareTo(o1.getDateTime()));
+        MATCHER.assertCollectionEquals(USER_MEALS, service.getAll(USER_ID));
     }
 
 }
