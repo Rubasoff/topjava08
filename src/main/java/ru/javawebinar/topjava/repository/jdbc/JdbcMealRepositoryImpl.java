@@ -42,6 +42,7 @@ public class JdbcMealRepositoryImpl implements MealRepository {
 
     @Override
     public Meal save(Meal meal, int userId) {
+        int rowCount = 0;
         MapSqlParameterSource map = new MapSqlParameterSource()
                 .addValue("id", meal.getId())
                 .addValue("user_id", userId)
@@ -53,11 +54,11 @@ public class JdbcMealRepositoryImpl implements MealRepository {
             Number newKey = insertMeal.executeAndReturnKey(map);
             meal.setId(newKey.intValue());
         } else {
-            namedParameterJdbcTemplate.update(
+            rowCount = namedParameterJdbcTemplate.update(
                     "UPDATE meals SET description=:description, calories=:calories, dateTime=:dateTime " +
                             "WHERE id=:id AND user_id=:user_id", map);
         }
-        return meal;
+        return rowCount == 0 ? null : meal;
     }
 
     @Override
