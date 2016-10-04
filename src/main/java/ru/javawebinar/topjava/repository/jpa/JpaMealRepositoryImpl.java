@@ -35,7 +35,6 @@ public class JpaMealRepositoryImpl implements MealRepository {
             return meal;
         }
         else {
-
             if (em.getReference(Meal.class, meal.getId()).getUser().getId() == userId) {
                 return em.merge(meal);
             }
