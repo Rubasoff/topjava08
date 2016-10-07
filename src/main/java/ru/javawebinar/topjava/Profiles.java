@@ -12,5 +12,5 @@ public class Profiles {
             JPA = "jpa",
             SPRING_DATA_JPA = "datajpa";
 
-    public static final String ACTIVE_DB = POSTGRES;
+    public static final String ACTIVE_DB = HSQLDB;
 }
