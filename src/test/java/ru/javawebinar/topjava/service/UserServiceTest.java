@@ -1,6 +1,7 @@
 package ru.javawebinar.topjava.service;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import static ru.javawebinar.topjava.UserTestData.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 @ActiveProfiles(Profiles.ACTIVE_DB)
+@Ignore
 public class UserServiceTest {
 
     @Autowired

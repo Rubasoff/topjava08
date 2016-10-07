@@ -1,6 +1,7 @@
 package ru.javawebinar.topjava.service;
 
 import org.junit.AfterClass;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -35,6 +36,7 @@ import static ru.javawebinar.topjava.UserTestData.USER_ID;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 @ActiveProfiles(Profiles.ACTIVE_DB)
+@Ignore
 public class MealServiceTest {
     private static final Logger LOG = LoggerFactory.getLogger(MealServiceTest.class);
 
