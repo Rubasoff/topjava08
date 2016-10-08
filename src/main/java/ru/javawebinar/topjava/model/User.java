@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,6 +29,9 @@ public class User extends NamedEntity {
     public static final String DELETE = "User.delete";
     public static final String ALL_SORTED = "User.getAllSorted";
     public static final String BY_EMAIL = "User.getByEmail";
+
+    @OneToMany(mappedBy = "user")
+    private List<Meal> meals;
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
@@ -73,6 +77,11 @@ public class User extends NamedEntity {
         this.caloriesPerDay = caloriesPerDay;
         this.enabled = enabled;
         this.roles = roles;
+    }
+
+
+    public List<Meal> getMeals() {
+        return meals;
     }
 
     public String getEmail() {

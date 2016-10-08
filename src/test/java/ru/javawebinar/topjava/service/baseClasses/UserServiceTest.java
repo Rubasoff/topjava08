@@ -11,7 +11,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import ru.javawebinar.topjava.MealTestData;
 import ru.javawebinar.topjava.Profiles;
+import ru.javawebinar.topjava.UserTestData;
+import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.service.UserService;
@@ -21,6 +24,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
+import static ru.javawebinar.topjava.MealTestData.ADMIN_MEAL1;
+import static ru.javawebinar.topjava.MealTestData.ADMIN_MEAL2;
+import static ru.javawebinar.topjava.MealTestData.ADMIN_MEAL_ID;
 import static ru.javawebinar.topjava.UserTestData.*;
 
 @ContextConfiguration({
@@ -30,8 +36,8 @@ import static ru.javawebinar.topjava.UserTestData.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 @ActiveProfiles(Profiles.ACTIVE_DB)
-@Ignore
-public class UserServiceTest {
+
+abstract public class UserServiceTest {
 
     @Autowired
     protected UserService service;
@@ -95,5 +101,12 @@ public class UserServiceTest {
         updated.setCaloriesPerDay(330);
         service.update(updated);
         MATCHER.assertEquals(updated, service.get(USER_ID));
+    }
+
+    @Test
+    public void testGetWithMeals() throws Exception{
+        User user = service.getWithMeals(ADMIN_ID);
+        MATCHER.assertEquals(ADMIN, user);
+        MealTestData.MATCHER.assertCollectionEquals(user.getMeals(), Arrays.asList(ADMIN_MEAL1, ADMIN_MEAL2));
     }
 }

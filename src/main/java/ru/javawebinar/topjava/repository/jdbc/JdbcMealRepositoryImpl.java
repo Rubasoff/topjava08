@@ -111,9 +111,4 @@ public class JdbcMealRepositoryImpl implements MealRepository {
                 map,
                 ROW_MAPPER);
     }
-
-    @Override
-    public Meal getWithUser(int id, int userId) {
-        throw new UnsupportedOperationException();
-    }
 }
