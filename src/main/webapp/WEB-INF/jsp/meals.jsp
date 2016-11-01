@@ -14,36 +14,36 @@
                 <h3><fmt:message key="meals.title"/></h3>
 
                 <div style="margin:25px 0 25px 0;">
-                    <form method="post" action="meals/filter" class="form-horizontal">
+                    <form method="post" action="meals/filter" class="form-horizontal" id="filter">
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="startDate"><fmt:message
                                     key="meals.startDate"/>:</label>
                             <div class="col-sm-2">
-                                <input type="date" class="form-control" id="startDate" value="${param.startDate}">
+                                <input type="date" class="form-control" name ="startDate" id="startDate" value="${param.startDate}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="endDate"><fmt:message
                                     key="meals.endDate"/>:</label>
                             <div class="col-sm-2">
-                                <input type="date" class="form-control" id="endDate" value="${param.endDate}">
+                                <input type="date" class="form-control" name ="endDate" id="endDate" value="${param.endDate}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="startTime"><fmt:message
                                     key="meals.startTime"/>:</label>
                             <div class="col-sm-2">
-                                <input type="time" class="form-control" id="startTime" value="${param.startTime}">
+                                <input type="time" class="form-control" name ="startTime" id="startTime" value="${param.startTime}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="endTime"><fmt:message
                                     key="meals.endTime"/>:</label>
                             <div class="col-sm-2">
-                                <input type="time" class="form-control" id="endTime" value="${param.endTime}">
+                                <input type="time" class="form-control" name ="endTime" id="endTime" value="${param.endTime}">
                             </div>
                         </div>
-                        <button class="btn btn-danger" type="submit"><fmt:message key="meals.filter"/></button>
+                        <button class="btn btn-danger filter" type="button"><fmt:message key="meals.filter"/></button>
                     </form>
                 </div>
 
