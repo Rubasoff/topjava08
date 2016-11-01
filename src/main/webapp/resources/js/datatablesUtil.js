@@ -12,6 +12,12 @@ function makeEditable() {
         return false;
     });
 
+    $('.userEnabled').change(function () {
+        $.post(ajaxUrl+"enabled",
+            {"id": $(this).closest('tr').attr('id'),
+             "enabled": $(this).is(":checked")});
+    });
+
     $(document).ajaxError(function (event, jqXHR, options, jsExc) {
         failNoty(event, jqXHR, options, jsExc);
     });
