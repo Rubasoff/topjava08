@@ -1,10 +1,10 @@
 function makeEditable() {
     $('.delete').click(function () {
-        deleteRow($(this).attr("id"));
+        deleteRow($(this).closest('tr').attr('id'));
     });
 
     $('.filter').click(function () {
-        updateTable();
+        doFilter();
     });
 
     $('#detailsForm').submit(function () {
@@ -32,8 +32,19 @@ function deleteRow(id) {
         }
     });
 }
-
 function updateTable() {
+    if (ajaxUrl === "ajax/profile/meals/")  doFilter();
+    else
+    $.get(ajaxUrl, function (data) {
+        datatableApi.fnClearTable();
+        $.each(data, function (key, item) {
+            datatableApi.fnAddData(item);
+
+        });
+        datatableApi.fnDraw();
+    });
+}
+function doFilter() {
     var form = $('#filter');
     $.post(ajaxUrl+"filter",
         form.serialize(),

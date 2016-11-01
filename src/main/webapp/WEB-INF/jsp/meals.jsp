@@ -61,7 +61,7 @@
                     </thead>
                     <c:forEach items="${meals}" var="meal">
                         <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.to.MealWithExceed"/>
-                        <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
+                        <tr class="${meal.exceed ? 'exceeded' : 'normal'}" id=${meal.id}>
                             <td>
                                     <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>
                                     <%--<%=TimeUtil.toString(meal.getDateTime())%>--%>
@@ -70,11 +70,11 @@
                             <td>${meal.description}</td>
                             <td>${meal.calories}</td>
                             <td class="col-md-1">
-                                <button type="button" class="btn btn-primary edit" id=${meal.id}><fmt:message
+                                <button type="button" class="btn btn-primary edit"><fmt:message
                                         key="common.update"/></button>
                             </td>
                             <td class="col-md-1">
-                                <button type="button" class="btn btn-danger delete" id=${meal.id}><fmt:message
+                                <button type="button" class="btn btn-danger delete"}><fmt:message
                                         key="common.delete"/></button>
                             </td>
                         </tr>
