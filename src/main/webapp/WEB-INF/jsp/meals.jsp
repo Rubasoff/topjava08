@@ -74,7 +74,7 @@
                                         key="common.update"/></button>
                             </td>
                             <td class="col-md-1">
-                                <button type="button" class="btn btn-danger delete"}><fmt:message
+                                <button type="button" class="btn btn-danger delete"><fmt:message
                                         key="common.delete"/></button>
                             </td>
                         </tr>

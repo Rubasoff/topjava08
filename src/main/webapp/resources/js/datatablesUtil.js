@@ -34,28 +34,22 @@ function deleteRow(id) {
 }
 function updateTable() {
     if (ajaxUrl === "ajax/profile/meals/")  doFilter();
-    else
-    $.get(ajaxUrl, function (data) {
-        datatableApi.fnClearTable();
-        $.each(data, function (key, item) {
-            datatableApi.fnAddData(item);
-
-        });
-        datatableApi.fnDraw();
-    });
+    else $.get(ajaxUrl, drawTable);
 }
 function doFilter() {
     var form = $('#filter');
     $.post(ajaxUrl+"filter",
         form.serialize(),
-        function (data) {
-            datatableApi.fnClearTable();
-            $.each(data, function (key, item) {
-                datatableApi.fnAddData(item);
+        drawTable);
+}
 
-            });
-            datatableApi.fnDraw();
-        });
+function drawTable(data) {
+    datatableApi.fnClearTable();
+    $.each(data, function (key, item) {
+        datatableApi.fnAddData(item);
+
+    });
+    datatableApi.fnDraw();
 }
 
 function save() {
