@@ -34,6 +34,7 @@ function updateTable() {
         datatableApi.fnClearTable();
         $.each(data, function (key, item) {
             datatableApi.fnAddData(item);
+
         });
         datatableApi.fnDraw();
     });
