@@ -15,7 +15,8 @@
             <h3><fmt:message key="users.title"/></h3>
 
             <div class="view-box">
-                <a class="btn btn-sm btn-info" onclick="add('<fmt:message key="users.add"/>')"><fmt:message key="users.add"/></a>
+                <a class="btn btn-sm btn-info" onclick="add('<fmt:message key="users.add"/>')"><fmt:message
+                        key="users.add"/></a>
 
                 <table class="table table-striped display" id="datatable">
                     <thead>
@@ -51,7 +52,8 @@
                         <label for="name" class="control-label col-xs-3"><fmt:message key="users.name"/></label>
 
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="<fmt:message key="users.name"/>">
+                            <input type="text" class="form-control" id="name" name="name"
+                                   placeholder="<fmt:message key="users.name"/>">
                         </div>
                     </div>
 
@@ -59,7 +61,8 @@
                         <label for="email" class="control-label col-xs-3"><fmt:message key="users.email"/></label>
 
                         <div class="col-xs-9">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="<fmt:message key="users.email"/>">
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="<fmt:message key="users.email"/>">
                         </div>
                     </div>
 
@@ -67,13 +70,15 @@
                         <label for="password" class="control-label col-xs-3"><fmt:message key="users.password"/></label>
 
                         <div class="col-xs-9">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="<fmt:message key="users.password"/>">
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="<fmt:message key="users.password"/>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
-                            <button class="btn btn-primary"  type="button" onclick="save()"><fmt:message key="common.save"/></button>
+                            <button class="btn btn-primary" type="button" onclick="save()"><fmt:message
+                                    key="common.save"/></button>
                         </div>
                     </div>
                 </form>
@@ -83,11 +88,7 @@
 </div>
 </body>
 <script type="text/javascript">
-var i18n = [];
-    <c:forEach var='key' items='<%=new String[]{"common.update","common.delete","common.deleted","common.saved","common.enabled","common.disabled","common.failed"}%>'>
-i18n['${key}'] = '<fmt:message key="${key}"/>';
-    </c:forEach>
-var edit_title ='<fmt:message key="users.edit"/>';
+    var edit_title = '<fmt:message key="users.edit"/>';
 </script>
 <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
