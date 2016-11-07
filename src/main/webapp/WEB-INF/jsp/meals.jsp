@@ -135,6 +135,12 @@
 <script type="text/javascript" src="webjars/noty/2.3.8/js/noty/packaged/jquery.noty.packaged.min.js"></script>
 <script type="text/javascript" src="resources/js/datatablesUtil.js"></script>
 <script type="text/javascript">
+
+    var i18n = [];
+    <c:forEach var='key' items='<%=new String[]{"common.update","common.delete","common.deleted","common.saved","common.enabled","common.disabled","common.failed"}%>'>
+    i18n['${key}'] = '<fmt:message key="${key}"/>';
+    </c:forEach>
+
     var ajaxUrl = 'ajax/profile/meals/';
     var datatableApi;
 
