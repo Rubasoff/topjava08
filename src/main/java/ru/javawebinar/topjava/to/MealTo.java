@@ -11,9 +11,7 @@ import java.time.LocalDateTime;
 /**
  * Created by Денис on 06.11.2016.
  */
-public class MealTo implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class MealTo {
 
     private Integer id;
 

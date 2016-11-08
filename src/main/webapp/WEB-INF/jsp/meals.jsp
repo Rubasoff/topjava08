@@ -21,26 +21,26 @@
                         <label class="control-label col-sm-2" for="startDate"><fmt:message key="meals.startDate"/>:</label>
 
                         <div class="col-sm-2">
-                            <input class="form-control" type="date" name="startDate" id="startDate">
+                            <input class="form-control" type="text" name="startDate" id="startDate">
                         </div>
 
                         <label class="control-label col-sm-2" for="endDate"><fmt:message key="meals.endDate"/>:</label>
 
                         <div class="col-sm-2">
-                            <input class="form-control" type="date" name="endDate" id="endDate">
+                            <input class="form-control" type="text" name="endDate" id="endDate">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="startTime"><fmt:message key="meals.startTime"/>:</label>
 
                         <div class="col-sm-2">
-                            <input class="form-control" type="time" name="startTime" id="startTime">
+                            <input class="form-control" type="text" name="startTime" id="startTime">
                         </div>
 
                         <label class="control-label col-sm-2" for="endTime"><fmt:message key="meals.endTime"/>:</label>
 
                         <div class="col-sm-2">
-                            <input class="form-control" type="time" name="endTime" id="endTime">
+                            <input class="form-control" type="text" name="endTime" id="endTime">
                         </div>
                     </div>
                     <div class="form-group">
@@ -82,7 +82,7 @@
                         <label for="dateTime" class="control-label col-xs-3"><fmt:message key="meals.dateTime"/></label>
 
                         <div class="col-xs-9">
-                            <input type="datetime-local" class="form-control" id="dateTime"
+                            <input type="text" class="form-control" id="dateTime"
                                    name="dateTime" placeholder="<fmt:message key="meals.dateTime"/>">
                         </div>
                     </div>
@@ -121,6 +121,7 @@
 <script type="text/javascript" src="webjars/noty/2.3.8/js/noty/packaged/jquery.noty.packaged.min.js"></script>
 <script type="text/javascript" src="resources/js/datatablesUtil.js"></script>
 <script type="text/javascript" src="resources/js/mealsDatatables.js"></script>
+<script type="text/javascript" src="webjars/datetimepicker/2.4.5/jquery.datetimepicker.js"></script>
 <script type="text/javascript">
     var edit_title = '<fmt:message key="meals.edit"/>';
 </script>
