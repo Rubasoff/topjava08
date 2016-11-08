@@ -40,7 +40,7 @@ $(function () {
         format:'H:i'
     });
 
-    $('#dateTime').datetimepicker({format: 'Y-m-d\\TH:m:s'});
+    $('#dateTime').datetimepicker({format: 'Y-m-d\\TH:i'});
 
     datatableApi = $('#datatable').DataTable({
         "ajax": {
