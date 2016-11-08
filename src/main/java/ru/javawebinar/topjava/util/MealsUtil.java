@@ -51,6 +51,6 @@ public class MealsUtil {
     }
 
     public static Meal createNewFromTo(MealTo mealTo){
-        return new Meal(mealTo.getDateTime(), mealTo.getDescription(), mealTo.getCalories());
+        return new Meal(mealTo.getId(),mealTo.getDateTime(), mealTo.getDescription(), mealTo.getCalories());
     }
 }

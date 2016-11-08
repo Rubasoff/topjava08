@@ -30,6 +30,10 @@ public class MealAjaxController extends AbstractMealController {
         return super.getAll();
     }
 
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Meal get(@PathVariable int id){
+        return super.get(id);
+    };
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") int id) {
         super.delete(id);

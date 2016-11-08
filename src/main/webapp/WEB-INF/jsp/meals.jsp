@@ -122,6 +122,6 @@
 <script type="text/javascript" src="resources/js/datatablesUtil.js"></script>
 <script type="text/javascript" src="resources/js/mealsDatatables.js"></script>
 <script type="text/javascript">
-
+    var edit_title = '<fmt:message key="meals.edit"/>';
 </script>
 </html>
