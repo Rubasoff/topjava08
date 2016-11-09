@@ -82,8 +82,12 @@
                         <label for="dateTime" class="control-label col-xs-3"><fmt:message key="meals.dateTime"/></label>
 
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" id="dateTime"
-                                   name="dateTime" placeholder="<fmt:message key="meals.dateTime"/>">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" id="dateTime" name="dateTime" placeholder="<fmt:message key="meals.dateTime"/>">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -122,7 +126,13 @@
 <script type="text/javascript" src="resources/js/datatablesUtil.js"></script>
 <script type="text/javascript" src="resources/js/mealsDatatables.js"></script>
 <script type="text/javascript" src="webjars/datetimepicker/2.4.5/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="webjars/momentjs/2.15.1/moment.js"></script>
+<script type="text/javascript" src="webjars/momentjs/2.15.1/min/locales.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7-1/js/transition.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7-1/js/collapse.js"></script>
+<script type="text/javascript" src="webjars/eonasdan-bootstrap-datetimepicker/4.17.43/build/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript">
     var edit_title = '<fmt:message key="meals.edit"/>';
+    var localeCode="${pageContext.response.locale}";
 </script>
 </html>

@@ -30,17 +30,21 @@ function updateTable() {
 //     </c:forEach>
 
 $(function () {
-    $('#startDate, #endDate').datetimepicker({
-        timepicker:false,
-        format: 'Y-m-d'
-    });
+    // $('#startDate, #endDate').datetimepicker({
+    //     timepicker:false,
+    //     format: 'Y-m-d'
+    // });
+    //
+    // $('#startTime, #endTime').datetimepicker({
+    //     datepicker:false,
+    //     format:'H:i'
+    // });
 
-    $('#startTime, #endTime').datetimepicker({
-        datepicker:false,
-        format:'H:i'
+    //$('#dateTime').datetimepicker({format: 'Y-m-d\\TH:i'});
+    $('#datetimepicker1').datetimepicker({
+        locale: localeCode,
+        format:  "YYYY-MM-DD\\THH:mm"
     });
-
-    $('#dateTime').datetimepicker({format: 'Y-m-d\\TH:i'});
 
     datatableApi = $('#datatable').DataTable({
         "ajax": {
