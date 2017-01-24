@@ -38,6 +38,7 @@ public class RootController {
                         @RequestParam(value = "message", required = false) String message) {
         model.put("error", error);
         model.put("message", message);
+        String s;
         return "login";
     }
 
